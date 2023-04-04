@@ -1,4 +1,4 @@
-# Material UI - Next.js example in TypeScript
+# HBS - Admin panel Next.js in TypeScript
 
 ## How to use
 
