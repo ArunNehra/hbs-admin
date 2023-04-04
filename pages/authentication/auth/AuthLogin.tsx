@@ -26,7 +26,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
 		password: "",
 	});
 
-	const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+	const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
 		event.preventDefault();
 		//alert(JSON.stringify(value));
 
@@ -77,8 +77,8 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
 						variant="outlined"
 						fullWidth
 						value={value.username}
-						onChange={(e) =>
-							setValue({ ...value, [e.target.name]: e.target.value })
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+							setValue({ ...value, [e.target?.name]: e.target?.value })
 						}
 					/>
 				</Box>
@@ -98,8 +98,8 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
 						variant="outlined"
 						fullWidth
 						value={value.password}
-						onChange={(e) =>
-							setValue({ ...value, [e.target.name]: e.target.value })
+						onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+							setValue({ ...value, [e.target?.name]: e.target?.value })
 						}
 					/>
 				</Box>
@@ -135,7 +135,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
 					size="large"
 					fullWidth
 					component={Link}
-					onClick={handleClick}
+					onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleClick(e)}
 					href="/"
 					type="submit"
 				>
