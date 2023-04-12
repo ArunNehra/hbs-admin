@@ -12,6 +12,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import CustomTextField from "../../../src/components/forms/theme-elements/CustomTextField";
+import { useDispatch } from "react-redux";
+import { setAuthState } from "../../../store/authSlice";
 
 interface loginType {
 	title?: string;
@@ -20,6 +22,7 @@ interface loginType {
 }
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
+	const dispatch = useDispatch();
 	const router = useRouter();
 	const [value, setValue] = useState({
 		username: "",
@@ -33,14 +36,14 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => {
 		switch (value.username) {
 			case "arun":
 				value.password === "12345"
-					? router.push("/utilities/typography")
+					? (dispatch(setAuthState(true)), router.push("/utilities/typography"))
 					: alert(
 							`Please Enter correct password for username ${value.username}.`,
 					  );
 				break;
 			case "yogi":
 				value.password === "123456"
-					? router.push("/utilities/shadow")
+					? (dispatch(setAuthState(true)), router.push("/utilities/shadow"))
 					: alert(
 							`Please Enter correct password for username ${value.username}.`,
 					  );
